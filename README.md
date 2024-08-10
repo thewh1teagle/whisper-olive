@@ -48,3 +48,10 @@ Things to make it stable / usable:
 -   Enable `--multiligual` in model creatino
 -   Generate `forced_decoder_ids` from langauge id
 -   Make sure it handles correctly foreign languages with special characters
+-   
+
+Easier way to enable extensions:
+
+1. Download https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime.Extensions
+2. Enable "operator-libraries" feature in ort
+3. Use `with_operator_library`

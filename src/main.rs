@@ -4,9 +4,10 @@ use std::{fs::File, io::Read, time::Instant};
 
 fn main() {
     let audio_path = std::env::args().nth(1).expect("Please specify audio file");
+
     let session = Session::builder()
         .unwrap()
-        .with_extensions()
+        .with_operator_library("libortextensions.dylib")
         .unwrap()
         .with_optimization_level(GraphOptimizationLevel::Level3)
         .unwrap()

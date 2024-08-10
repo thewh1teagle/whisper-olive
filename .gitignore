@@ -4,3 +4,6 @@ onnxruntime/
 *.wav
 whisper_*.json
 *.onnx
+*.dylib
+*.dll
+*.so
