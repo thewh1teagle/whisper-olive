@@ -65,3 +65,4 @@ Easier way to enable extensions:
 
 Todo:
 Convert tiny + medium model on server with GPU to multilangual GPU / CPU versions and uplaod to releases.
+Create prompt forced tokens correctly for task (translate / transcribe) language (id) enable_timestamps() and prompt.
