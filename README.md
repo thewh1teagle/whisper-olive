@@ -7,7 +7,7 @@ Features
 - Optimized by onnxruntime (almost every GPU)
 - Very simple implementation. Almost everything happens in onnx runtime
 
-Export all in one model in https://github.com/microsoft/Olive/tree/main/examples/whisper
+Export all in one model in https://github.com/microsoft/Olive/tree/main/examples/whisper (with gpu worked with nvidia/cuda:12.2.2-devel-ubuntu22.04)
 
 ```console
 python prepare_whisper_configs.py --model_name openai/whisper-medium --multilingual
