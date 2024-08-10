@@ -3,17 +3,24 @@ use ort::{GraphOptimizationLevel, Session};
 use std::{fs::File, io::Read, time::Instant};
 
 fn main() {
-    let audio_path = std::env::args().nth(1).expect("Please specify audio file");
+    let extension_lib_name = if cfg!(windows) {
+        "ortextensions.dll"
+    } else if cfg!(target_os = "macos") {
+        "libortextensions.dylib"
+    } else {
+        "libortextensions.so"
+    };
 
+    let audio_path = std::env::args().nth(1).expect("Please specify audio file");
     let session = Session::builder()
         .unwrap()
-        .with_operator_library("libortextensions.dylib")
+        .with_operator_library(extension_lib_name)
         .unwrap()
         .with_optimization_level(GraphOptimizationLevel::Level3)
         .unwrap()
         .with_intra_threads(4)
         .unwrap()
-        .commit_from_file("whisper_cpu_int8_cpu-cpu_model.onnx")
+        .commit_from_file("whisper_medium_cpu_int8.onnx")
         .unwrap();
 
     let mut audio_file = File::open(audio_path).unwrap();
