@@ -7,3 +7,4 @@ whisper_*.json
 *.dylib
 *.dll
 *.so
+*.DS_Store
