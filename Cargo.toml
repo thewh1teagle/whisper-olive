@@ -5,4 +5,13 @@ edition = "2021"
 
 [dependencies]
 ndarray = "0.15.6"
+
+
+[target.'cfg(target_os = "macos")'.dependencies]
+ort = { version = "2.0.0-rc.4", features = ["operator-libraries", "coreml"] }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+ort = { version = "2.0.0-rc.4", features = ["operator-libraries", "directml"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
 ort = { version = "2.0.0-rc.4", features = ["operator-libraries"] }
