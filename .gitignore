@@ -1,0 +1,6 @@
+target/
+venv/
+onnxruntime/
+*.wav
+whisper_*.json
+*.onnx
