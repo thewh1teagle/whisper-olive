@@ -36,6 +36,8 @@ fn main() {
     let num_return_sequences = Array::from_shape_vec((1,), vec![1i32]).unwrap();
     let length_penalty = Array::from_shape_vec((1,), vec![1.0f32]).unwrap();
     let repetition_penalty = Array::from_shape_vec((1,), vec![1.0f32]).unwrap();
+    let decoder_input_ids =
+        Array::from_shape_vec((1, 4), vec![50258, 50259, 50359, 50363]).unwrap(); // Change 50259 to 50279 for hebrew
 
     let inputs = ort::inputs![
         "audio_stream" => audio.view(),
@@ -44,7 +46,8 @@ fn main() {
         "num_beams" => num_beams.view(),
         "num_return_sequences" => num_return_sequences.view(),
         "length_penalty" => length_penalty.view(),
-        "repetition_penalty" => repetition_penalty.view()
+        "repetition_penalty" => repetition_penalty.view(),
+        "decoder_input_ids" => decoder_input_ids.view()
     ]
     .unwrap();
 

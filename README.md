@@ -10,7 +10,7 @@ Features
 Export all in one model in https://github.com/microsoft/Olive/tree/main/examples/whisper
 
 ```console
-python prepare_whisper_configs.py --model_name openai/whisper-tiny.en
+python prepare_whisper_configs.py --model_name openai/whisper-medium --multilingual
 python -m olive run --config whisper_cpu_int8.json --setup
 python -m olive run --config whisper_cpu_int8.json
 python test_transcription.py --config whisper_cpu_int8.json
